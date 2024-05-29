@@ -1,5 +1,6 @@
-import {ConfigProvider, DatePicker} from 'antd';
+import {ConfigProvider} from 'antd';
 import './App.css'
+import Login from "./pages/Login/Index.jsx";
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
                 }
             }}
         >
-            <DatePicker />
+            <Login />
         </ConfigProvider>
     )
 }
