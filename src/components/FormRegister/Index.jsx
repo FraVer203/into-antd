@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Form, Input, Card } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
-import './FormLogin.css'
+import './FormRegister.css'
 import routes from '/src/components/routes.js';
 
-const FormLogin = () => {
-
-    // Estado para el error del login
-    const [loginError, setLoginError] = useState(false);
-    const navigate = useNavigate();
+const FormRegister = () => {
 
     // Función para mostrar los errores en el formulario
     const onFinishFailed = (errorInfo) => {
@@ -18,28 +13,15 @@ const FormLogin = () => {
 
     // Función para validar el usuario y contraseña
     const onFinish = (values) => {
-        const { username, password } = values;
-        if (username === user.username && password === user.password) {
-            navigate('/')
-        } else {
-            setLoginError(true);
-            const errorInfo = "Credenciales incorrectas. Inténtalo de nuevo."
-            onFinishFailed(errorInfo)
-        }
-    }
-
-    const user = {
-        username: 'admin',
-        password: 'admin'
+       console.log('Success: ', values);
     }
 
     return(
         <Card
-            tittle="Bienvenido de nuevo"
+            tittle="Registrate para iniciar sesión"
             bordered={false}
             className="responsive-card"
         >
-            {loginError && <p style={{ color: 'red' }}>Credenciales incorrectas. Inténtalo de nuevo.</p>}
             <Form
                 name={"normal_login"}
                 className={"login_form"}
@@ -78,13 +60,13 @@ const FormLogin = () => {
 
                 <Form.Item>
                     <Button type="primary" htmlType="submit" className={"login-form-button"}>
-                        Iniciar Sesión
+                        Registrarse
                     </Button>
                 </Form.Item>
-                ¿Aún no tienes cuenta? <a href={routes.registerRoute}>Registrate</a>
 
+                Ya tienes tu cuenta <a href={routes.loginRoute}>Inicia sesión</a>
             </Form>
         </Card>
     )
 }
-export default FormLogin
+export default FormRegister
