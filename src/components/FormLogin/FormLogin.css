@@ -1,0 +1,16 @@
+.responsive-card {
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.login-form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.login-form-button {
+    width: 100%;
+}
