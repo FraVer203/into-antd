@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Form, Input, Card } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import './FormRegister.css'
-import routes from '/src/components/routes.js';
+import routes from '/src/routes/routes.js';
 
 const FormRegister = () => {
 

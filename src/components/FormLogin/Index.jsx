@@ -3,7 +3,7 @@ import { Button, Form, Input, Card } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import './FormLogin.css'
-import routes from '/src/components/routes.js';
+import routes from '/src/routes/routes.js';
 
 const FormLogin = () => {
 
