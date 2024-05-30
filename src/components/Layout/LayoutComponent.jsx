@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Row } from 'antd';
 import './LayoutComponent.css';
 
+// Componente
 const LayoutComponent = ({ leftColSize, rightColSize, leftContent, rightContent }) => {
     return (
         <div className="layout-container">
