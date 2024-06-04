@@ -9,7 +9,7 @@ import {useNavigate} from "react-router-dom";
 const FormRegister = () => {
 
     // Estado de error de registro
-    const [registerError, setRegisterError] = useState(false);
+    const [registerError, setRegisterError] = useState(false)
     // Estado de carga
     const [loading, setLoading] = useState(false);
     const [messageError, setMessageError] = useState('')
