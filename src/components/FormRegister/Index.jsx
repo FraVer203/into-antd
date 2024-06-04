@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import { Button, Form, Input, Card } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import {useNavigate} from "react-router-dom";
 import './FormRegister.css'
 import routes from '/src/routes/routes.js';
-import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import authService from "../../services/auth.js"
+import {validatePassword} from "../../utils/validation.js";
 
 const FormRegister = () => {
 
@@ -26,19 +27,9 @@ const FormRegister = () => {
         //console.log('Success: ', values);
         setLoading(true) // Establecer el estado de carga a true al enviar el formulario
         try {
-            const response = await axios.post(`${routes.registerBack}users/`, {
-                name: values.name,
-                lastname: values.lastname,
-                email: values.email,
-                password: values.password,
-                roles: ['servicios_escolares']
-            }, {
-                headers: {
-                    'x-access-token': `${routes.token}`
-                }
-            })
-            console.log('Registro exitoso', response.data)
-            navigate('/login')
+            await authService.register(values.name, values.lastname, values.email, values.password)
+            console.log("Registro éxitoso")
+            navigate("/")
         } catch (e) {
             console.error('Error en el registro: ', e.response.data)
             setRegisterError(true)
@@ -47,15 +38,6 @@ const FormRegister = () => {
             setLoading(false)
         }
     }
-
-    const validatePassword = ({ getFieldValue }) => ({
-        validator(_, value) {
-            if (!value || getFieldValue('password') === value ) {
-                return Promise.resolve()
-            }
-            return Promise.reject(new Error('Las contraseñas no coinciden.'))
-        }
-    })
 
     return(
         <Card
