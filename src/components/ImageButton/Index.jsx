@@ -1,6 +1,6 @@
 const ImageButton = () => {
     return (
-        <img src='https://ethic.es/wp-content/uploads/2023/03/imagen.jpg'></img>
+        <img src='https://c4.wallpaperflare.com/wallpaper/378/783/697/star-wars-skyscraper-coruscant-wallpaper-preview.jpg'></img>
     );
 }
 
