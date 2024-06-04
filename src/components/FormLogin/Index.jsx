@@ -5,17 +5,18 @@ import './FormLogin.css'
 import routes from '/src/routes/routes.js';
 import authService from '/src/services/auth.js'
 import {useAuth} from "../../hooks/useAuth.js";
+import {useNavigate} from "react-router-dom";
 
 const FormLogin = () => {
 
     // Estado para el error del login
     const [loginError, setLoginError] = useState(false);
     const [loading, setLoading] = useState(false);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     // Manejo de estado de autenticación
     const useAuthData = useAuth()
-    console.log(useAuthData)
+    const { login } = useAuthData
 
     // Función para mostrar los errores en el formulario
     // const onFinishFailed = (errorInfo) => {
@@ -29,8 +30,10 @@ const FormLogin = () => {
         try {
             const response = await authService.loginF(values.email, values.password)
             if (response && response.data) {
-                localStorage.setItem('TOKEN: ', response.data.token)
-                console.log(response.data.token)
+                // localStorage.setItem('TOKEN: ', response.data.token)
+                localStorage.setItem('token', response.data.token)
+                login(response.data.token)
+                navigate('/')
             } else {
                 console.error("Error en el inicio de sesión: Respuesta inesperada")
                 setLoginError(true)
