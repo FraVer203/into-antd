@@ -4,11 +4,17 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import './FormLogin.css'
 import routes from '/src/routes/routes.js';
+<<<<<<< HEAD
 import axios from "axios";
+=======
+import authService from '/src/services/auth.js'
+import {useAuth} from "../../hooks/useAuth.js";
+>>>>>>> context-auth
 
 const FormLogin = () => {
 
     // Estado para el error del login
+<<<<<<< HEAD
     const [loginError, setLoginError] = useState(false)
     // Estado de carga
     const [loading, setLoading] = useState(false);
@@ -53,6 +59,42 @@ const FormLogin = () => {
         }
     }
 
+=======
+    const [loginError, setLoginError] = useState(false);
+    const [loading, setLoading] = useState(false);
+    // const navigate = useNavigate();
+
+    // Manejo de estado de autenticación
+    const useAuthData = useAuth()
+    console.log(useAuthData)
+
+    // Función para mostrar los errores en el formulario
+    // const onFinishFailed = (errorInfo) => {
+    //     console.log('Failed:', errorInfo);
+    // };
+
+    // Función para validar el usuario y contraseña
+    const onFinish = async (values) => {
+        setLoading(true)
+        setLoginError(false)
+        try {
+            const response = await authService.loginF(values.email, values.password)
+            if (response && response.data) {
+                localStorage.setItem('TOKEN: ', response.data.token)
+                console.log(response.data.token)
+            } else {
+                console.error("Error en el inicio de sesión: Respuesta inesperada")
+                setLoginError(true)
+            }
+        } catch (e) {
+            console.error("Error en el inicio de sesión: " + e.response ? e.response.data : e.message)
+            setLoginError(true)
+        } finally {
+            setLoading(false)
+        }
+    }
+
+>>>>>>> context-auth
     return(
         <Card
             tittle="Bienvenido de nuevo"
