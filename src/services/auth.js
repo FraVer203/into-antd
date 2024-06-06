@@ -1,8 +1,9 @@
 import axios from "axios";
 import routes from '/src/routes/routes.js';
+import { ENV } from "/src/utils/constants.js";
 
 const register = async (name, lastname, email, password) => {
-    return axios.post(`${routes.registerBack}users/`, {
+    return axios.post(`${ENV.API_URL}${ENV.ENDPOINTS.REGISTER}`, {
         name,
         lastname,
         email,
@@ -16,7 +17,7 @@ const register = async (name, lastname, email, password) => {
 }
 
 const loginF = async (email, password) => {
-    return axios.post(`${routes.registerBack}auth/signin`, {
+    return axios.post(`${ENV.API_URL}${ENV.ENDPOINTS.LOGIN}`, {
         email,
         password
     })
