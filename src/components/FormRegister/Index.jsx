@@ -28,7 +28,7 @@ const FormRegister = () => {
         setLoading(true) // Establecer el estado de carga a true al enviar el formulario
         try {
             await authService.register(values.name, values.lastname, values.email, values.password)
-            console.log("Registro éxitoso")
+            console.log("Registro exitoso")
             navigate("/")
         } catch (e) {
             console.error('Error en el registro: ', e.response.data)
