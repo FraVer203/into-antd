@@ -3,7 +3,7 @@ export const ENV = {
     ENDPOINTS: {
         LOGIN: "auth/signin",
         REGISTER: "users",
-        USERS: "#"
+        USERS: "users"
     },
     STORAGE: {
         TOKEN: "token"

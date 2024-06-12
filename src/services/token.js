@@ -2,12 +2,12 @@ import { ENV } from "../utils/constants.js";
 
 // Función para almacenar el token en el local storage
 const setToken = (token) => {
-  localStorage.setItem(ENV.STORAGE.TOKEN)
+  localStorage.setItem(ENV.STORAGE.TOKEN, token)
 }
 
 // Función para obtener el token de local storage
 const getToken = () => {
-  return localStorage.getItem(ENV.STORAGE.TOKEN)
+    return localStorage.getItem(ENV.STORAGE.TOKEN)
 }
 
 // Función para eliminar el token de local storage

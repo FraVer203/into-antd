@@ -1,5 +1,4 @@
 import axios from "axios";
-import routes from '/src/routes/routes.js';
 import { ENV } from "/src/utils/constants.js";
 
 const register = async (name, lastname, email, password) => {
@@ -11,7 +10,7 @@ const register = async (name, lastname, email, password) => {
         roles: ["servicios_escolares"]
     }, {
         headers: {
-            "x-access-token": routes.token
+            "x-access-token": ENV.STORAGE.TOKEN
         }
     })
 }
