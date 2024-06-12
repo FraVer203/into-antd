@@ -6,12 +6,11 @@ import Nav from "../../components/Nav/Index.jsx";
 // home
 const Home = () => {
 
-    const { user, logout } = useAuth()
+    const { user } = useAuth()
     return (
         <>
             <Nav />
             <h1>Hola, {user[0].name}</h1>
-            <button onClick={() => logout()}>Cerrar Sesión</button>
         </>
     )
 }
