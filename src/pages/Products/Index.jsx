@@ -1,14 +1,14 @@
 import React from 'react';
 import '../../components/FormLogin/FormLogin.css'
 import Nav from "../../components/Nav/Index.jsx";
+import TableProducts from "../Index.jsx";
 
 // home
 const Products = () => {
 
     return (
         <>
-            <Nav />
-            <h1>Productos</h1>
+            <TableProducts />
         </>
     )
 }
