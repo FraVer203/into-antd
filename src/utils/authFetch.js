@@ -4,6 +4,7 @@ import { tokenExpired } from "./tokenExpired.js";
 export const authFetch = async (url, params) => {
   const token = await storageController.getToken()
 
+
   const logout = () => {
     storageController.removeToken()
   }
